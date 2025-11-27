@@ -22,7 +22,7 @@ include("templates/template.php");
 
   while ($record = mysqli_fetch_array($resultSet, MYSQLI_ASSOC)) {
     if ($itemCount == 0) { // Add subtle shadow to the whole row
-      echo "thisSection.appendChild(createElementWithAttributes('div', {class:'row row-cols-1 row-cols-md-4 g-4 mt-4 shadow-sm'}));";
+      echo "thisSection.appendChild(createElementWithAttributes('div', {class:'row row-cols-1 row-cols-md-2 g-4 mt-4 shadow-sm'}));";
       echo "thisRow = document.querySelector('.row');";
     }
 

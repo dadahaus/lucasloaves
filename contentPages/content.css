@@ -76,3 +76,274 @@
     border-color: #80bdff;
     box-shadow: 0 0 0 0.25rem rgba(63, 81, 181, 0.25); /* Custom primary color glow on focus */
 }
+
+/* --- Modern Table Styling (for Order Summary) --- */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table thead th {
+    border-bottom: 2px solid #dee2e6; /* Clean separating line */
+    padding: 1rem 0.5rem;
+    font-weight: 700;
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f8f9fa; /* Light hover effect for rows */
+}
+
+.grandTotalRow th {
+    border-top: 2px solid #343a40; /* Strong line above total */
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* --- Modern Image Styling and Transitions --- */
+
+/* Style for the image container */
+.imageContainer img {
+    /* Ensure the image is contained nicely within the rounded corners */
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    
+    /* Add subtle initial shadow and smooth transition */
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    
+    /* Inherit the rounded corners defined for the container in previous step */
+    border-radius: inherit; 
+}
+
+/* Hover effect: Subtle scale and a more pronounced shadow */
+.imageContainer img:hover {
+    transform: scale(1.02); /* Scale up by 2% */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); /* Stronger, deeper shadow */
+}
+
+/* --- Modern Top Menu Styling --- */
+
+/* General Navbar Clean-up */
+.navbar {
+    /* Optional: If you want a subtle shadow under the navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+.container-fluid {
+justify-content: center;}
+/* Menu Items (Links) Styling */
+.navbar-nav .nav-link {
+    /* Better spacing and typography */
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #495057; /* Darker, professional text color */
+    padding: 0.5rem 1rem !important;
+    position: relative; /* Needed for the dynamic line effect */
+}
+
+/* Dynamic Hover Effect: Underline Transition */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0%; /* Start with zero width */
+    height: 3px;
+    bottom: 0;
+    left: 50%;
+    background-color: #3f51b5; /* Your primary color */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    /* On hover or active page, expand the underline */
+    width: 80%; 
+}
+
+/* Active Link Styling */
+.navbar-nav .nav-link.active {
+    color: #3f51b5 !important; /* Highlight active link with primary color */
+    font-weight: 700;
+}
+
+/* Optional: Brand/Logo Styling */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3f51b5 !important;
+}
+
+/* --- MODERN UNIFIED CARD PROMO SECTION --- */
+.two-column-promo {
+    margin: 6rem auto; /* Generous vertical spacing */
+    max-width: 1200px; /* Limits width on huge screens */
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08); /* Strong shadow for depth */
+    border-radius: 12px; /* Rounded corners on the whole container */
+    overflow: hidden; /* Ensures content/images follow the rounding */
+    background-color: #ffffff; /* Clean white background */
+}
+
+/* Image Container (Visuals) */
+.imageContainer {
+    /* Ensure the image inside fills the space correctly */
+    min-height: 400px; 
+    order: 1; /* Reset order to standard */
+}
+
+/* Ensure the image is always contained nicely */
+.imageContainer img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0; /* Remove individual rounding */
+    box-shadow: none; /* Remove individual shadow */
+}
+
+/* Text Description Container (Content) */
+.textDescription {
+    padding: 4rem 3rem; /* More generous internal padding */
+    text-align: left;
+    order: 2; /* Reset order to standard */
+    background-color: transparent; /* Remove individual background color */
+}
+
+.textDescription h3 {
+    font-size: 2.5rem; /* Larger, more impactful heading */
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.textDescription ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.1rem;
+}
+
+.textDescription ul li {
+    margin-bottom: 0.75rem;
+    color: #495057;
+}
+
+
+/* DESKTOP LAYOUT ADJUSTMENTS (Flex to ensure equal height) */
+@media (min-width: 768px) {
+    /* Ensure the columns inside the promo are equal height */
+    .two-column-promo .row {
+        display: flex;
+        align-items: stretch; /* Stretch children to equal height */
+    }
+    
+    /* Reversing the order for the 'About Us' section */
+    .about-us-section .imageContainer {
+        order: 2; /* Image on the right */
+    }
+    .about-us-section .textDescription {
+        order: 1; /* Text on the left */
+    }
+}
+
+
+/* --- MODERN BLACK GRADIENT BACKGROUND FOR ENTIRE HOMEPAGE --- */
+body {
+    /* Subtle Dark Gradient: from a very dark blue-gray to a soft black */
+    background: linear-gradient(to bottom, #1e2025, #0a0a0a) !important;
+    min-height: 100vh; /* Ensure the gradient covers the full viewport height */
+}
+
+/* Ensure all text is readable on the dark background */
+h1, h2, h3, h4, h5, h6, p, label {
+    color: #f1f1f1 !important; /* Change default text color to a light gray/white */
+}
+
+/* Override the light background on the Featured Products section */
+.featured-products-section {
+    background-color: transparent !important; 
+    box-shadow: none !important; /* Remove any shadows that clash with the dark background */
+}
+
+/* Ensure the unified promo cards stand out with a contrasting white background */
+.two-column-promo {
+    background-color: #ffffff !important; 
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5) !important; /* Stronger shadow on dark background */
+}
+
+/* Ensure text inside the white cards is readable (black) */
+.two-column-promo h3,
+.two-column-promo ul li {
+    color: #212529 !important; /* Dark text inside the white card */
+}
+
+/* Ensure the primary color links are still visible */
+.btn-outline-primary {
+    color: #f1f1f1 !important; /* Light text for buttons */
+    border-color: #f1f1f1 !important; 
+}
+.btn-outline-primary:hover {
+    color: #0a0a0a !important; /* Dark text on hover */
+    background-color: #f1f1f1 !important;
+}
+
+/* --- Modern Bold Typography for Featured Section --- */
+.modern-heading-container {
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    overflow: hidden; /* To handle potentially large text sizes */
+}
+
+.modern-heading-line-1,
+.modern-heading-line-2 {
+    /* Set an extreme font size */
+    font-size: 8vw !important; /* Use viewport width for responsive, huge text */
+    line-height: 0.8; /* Reduce line height to bring lines close */
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 900 !important; /* Extremely bold */
+    letter-spacing: -2px; /* Tighten up the letters */
+    text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+    /* For large screens, use a fixed huge size */
+    .modern-heading-line-1,
+    .modern-heading-line-2 {
+        font-size: 150px !important;
+        line-height: 0.85;
+    }
+}
+
+/* *** MAXIMUM SPECIFICITY FIX FOR CARD TRANSPARENCY *** */
+
+/* 1. Target the outermost element (the column) */
+.modern-grid-section .product-grid-target > .row > div {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 2. Target the card wrapper itself */
+.modern-grid-section .card {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* 3. Target the card body where the text is located */
+.modern-grid-section .card-body {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 4. Ensure card text is visible on the black background */
+.modern-grid-section .card-title,
+.modern-grid-section .card-text {
+    color: #ffffff !important;
+}

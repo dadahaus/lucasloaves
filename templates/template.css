@@ -45,5 +45,114 @@ main{min-height:70vh;}
 
 /* Optional: Style for the featured section */
 .featured-products-section {
-    background-color: #f8f9fa; /* Light grey background */
+    background-color: #3d3d3d; /* Light grey background */
+}
+
+/* --- Product Card Styling for Modern Grid (Based on 2x2) --- */
+
+.modern-grid-section .product-grid-target {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Make the card text left-aligned like the inspiration */
+.modern-grid-section .card-body.text-center {
+    text-align: left !important;
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Style the product name/title for the bold look */
+.modern-grid-section .card-title {
+    font-size: 2.2rem !important; /* Larger text */
+    font-weight: 700 !important;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+/* Style the price text to be less prominent */
+.modern-grid-section .card-text {
+    font-size: 1.2rem !important;
+    font-weight: 500 !important;
+    opacity: 0.7; /* Subtly fade the price */
+    margin-bottom: 1.5rem;
+}
+
+/* Hide the 'Add to Cart' button for now to match the minimalist look of the screenshot */
+.modern-grid-section .card-body .btn-primary {
+    display: none !important; 
+}
+
+
+/* --- Product Cards: Transparent Override for Black Aesthetic --- */
+
+/* Target the card wrapper and force transparency and no visual borders */
+.col-12 .card {
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; /* Remove any lingering shadows */
+    border-radius: 0 !important; /* Remove rounded corners for a modern, minimalist look */
+}
+
+/* Ensure the card body (where text is) is also transparent */
+.card-body.text-center {
+    background-color: transparent !important; 
+}
+
+/* Remove any lifting effect on hover, as shadows/lifting don't work well with transparency */
+.col-12 .card:hover {
+    transform: translateY(0) !important; 
+    box-shadow: none !important; 
+}
+
+/* Reconfirm Text Colors (Product Name, Price) for maximum readability on the black background */
+.modern-grid-section .card-title {
+    color: #ffffff !important; /* White text for the product name */
+}
+
+.modern-grid-section .card-text {
+    color: #cccccc !important; /* Light gray for the price */
+}
+
+/* The 'Add to Cart' button (if hidden in a previous step) will now float over the black background */
+.modern-grid-section .card-body .btn-primary {
+    /* Ensuring visibility */
+    display: block !important; 
+    margin-top: 1rem;
+}
+
+/* --- FORCE TRANSPARENT PRODUCT CARDS (HIGH SPECIFICITY FIX) --- */
+
+/* 1. Target the outermost wrapper (the column) and card itself */
+.modern-grid-section .col-12, 
+.modern-grid-section .col-md-6,
+.modern-grid-section .col-12 .card {
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; /* Remove all shadows */
+    border-radius: 0 !important; /* Remove any rounding */
+    padding: 0; /* Optional: Remove padding if any default is present on column */
+}
+
+/* 2. Target the card content body */
+.modern-grid-section .card-body {
+    background-color: transparent !important; 
+    border: none !important; 
+}
+
+/* 3. Reconfirm Text Colors (Essential for visibility on black background) */
+.modern-grid-section .card-title {
+    color: #ffffff !important; /* White text for the product name */
+    font-weight: 700 !important; /* Keep the bold look */
+}
+
+.modern-grid-section .card-text {
+    color: #cccccc !important; /* Light gray for the price */
+    opacity: 0.7 !important;
+}
+
+/* 4. Remove any visual effects that clash with transparency */
+.modern-grid-section .card:hover {
+    transform: translateY(0) !important; /* No lift */
+    box-shadow: none !important; 
 }
