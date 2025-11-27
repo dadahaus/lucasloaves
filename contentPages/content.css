@@ -317,33 +317,37 @@ h1, h2, h3, h4, h5, h6, p, label {
         line-height: 0.85;
     }
 }
+/* --- GLOBAL FIX: TRANSPARENT CARDS FOR DARK AESTHETIC --- */
 
-/* *** MAXIMUM SPECIFICITY FIX FOR CARD TRANSPARENCY *** */
+/* 1. Target the main card wrapper globally */
+.card {
+    background-color: transparent !important; 
+    border: none !important; 
+    box-shadow: none !important; 
+    border-radius: 0 !important; 
+}
 
-/* 1. Target the outermost element (the column) */
-.modern-grid-section .product-grid-target > .row > div {
-    background-color: transparent !important;
-    border: none !important;
+/* 2. Target the card content body */
+.card-body {
+    background-color: transparent !important; 
+    border: none !important; 
     box-shadow: none !important;
 }
 
-/* 2. Target the card wrapper itself */
-.modern-grid-section .card {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
+/* 3. Ensure all text inside the card is white/light gray */
+.card-title,
+.card-text {
+    color: #ffffff !important; /* White text for product name */
 }
 
-/* 3. Target the card body where the text is located */
-.modern-grid-section .card-body {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
+/* 4. Remove hover effects that rely on shadows/lifting */
+.card:hover {
+    transform: translateY(0) !important; 
+    box-shadow: none !important; 
 }
 
-/* 4. Ensure card text is visible on the black background */
-.modern-grid-section .card-title,
-.modern-grid-section .card-text {
-    color: #ffffff !important;
+/* 5. Ensure the product images are visible and maintain their look */
+.card-img-top {
+    /* Keep existing image styling (height, object-fit) but ensure no background leaks */
+    background-color: transparent !important; 
 }
